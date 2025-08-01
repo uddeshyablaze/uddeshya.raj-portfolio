@@ -1,1 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uddeshya Raj - Data Analyst & AI Enthusiast</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #0a0a0a;
+            --accent-color: #00d4ff;
+            --accent-secondary: #0099ff;
+            --accent-tertiary: #0066cc;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --gradient: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066cc 100%);
+            --gradient-hover: linear-gradient(135deg, #00e5ff 0%, #00aaff 50%, #0077dd 100%);
+            --card-gradient: linear-gradient(145deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 153, 255, 0.05) 50%, rgba(0, 102, 204, 0.03) 100%);
+            --glow-color: rgba(0, 212, 255, 0.4);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000000;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Particles */
+        .particles-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float-particle 20s infinite linear;
+        }
+
+        .particle:nth-child(odd) {
+            background: var(--accent-secondary);
+            animation-duration: 25s;
+        }
+
+        .particle:nth-child(3n) {
+            width: 2px;
+            height: 2px;
+            animation-duration: 30s;
+        }
+
+        .particle:nth-child(4n) {
+            width: 6px;
+            height: 6px;
+            animation-duration: 15s;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Floating SVG Shapes */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+            animation: float-shape 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .shape-2 {
+            top: 20%;
+            right: 10%;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .shape-3 {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+
+        .shape-4 {
+            bottom: 10%;
+            right: 20%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+
+        @keyframes float-shape {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(240deg);
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-30%, -30%) rotate(180deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .profile-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s ease;
+            animation: profileGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes profileGlow {
+            0%, 100% { box-shadow: 0 0 50px rgba(0, 212, 255, 0.3); }
+            50% { box-shadow: 0 0 80px rgba(0, 212, 255, 0.6); }
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotateY(10deg);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideUp 1s ease-out;
+            min-height: 4rem;
+            border-right: 3px solid var(--accent-color);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+        }
+
+        /* Typewriter Effect - Fixed */
+        #typewriter-text {
+            overflow: hidden;
+            border-right: 3px solid var(--accent-color);
+            white-space: nowrap;
+            width: 0;
+            animation: typing 4s steps(20, end) forwards 1.5s, blink-caret 0.75s step-end infinite 1.5s;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent-color); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* About Me Section */
+        .about-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-card {
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 153, 255, 0.05) 50%, rgba(0, 102, 204, 0.03) 100%);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            border-radius: 30px;
+        }
+
+        .profile-card:hover::before {
+            opacity: 1;
+        }
+
+        .profile-card:hover {
+            box-shadow: 
+                0 25px 50px rgba(0, 212, 255, 0.3),
+                0 0 60px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .about-profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
+            transition: all 0.4s ease;
+            animation: profileGlow 4s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes profileGlow {
+            0%, 100% { box-shadow: 0 0 50px rgba(0, 212, 255, 0.4); }
+            50% { box-shadow: 0 0 80px rgba(0, 212, 255, 0.6); }
+        }
+
+        .about-profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-profile-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        .experience-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-left: 80px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 21px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--glow-color);
+            z-index: 2;
+        }
+
+        .experience-card {
+            background: var(--card-gradient);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-company {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-title {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .experience-achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .experience-achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        .experience-achievements li:hover {
+            color: var(--text-primary);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-gradient);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .skill-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Certifications Slider */
+        .certifications {
+            background: var(--secondary-color);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            overflow: hidden;
+        }
+
+        .cert-slider {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 2rem;
+        }
+
+        .cert-item {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: scale(1.1);
+        }
+
+        .cert-item img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Dashboard Section */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .dashboard-item {
+            background: var(--secondary-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .dashboard-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .dashboard-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .dashboard-info {
+            padding: 1.5rem;
+        }
+
+        .dashboard-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Photography Gallery */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            perspective: 1000px;
+        }
+
+        .photo-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 153, 255, 0.05) 50%, rgba(0, 102, 204, 0.03) 100%);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+        }
+
+        .photo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .photo-item:hover::before {
+            opacity: 1;
+        }
+
+        .photo-item:hover {
+            box-shadow: 
+                0 25px 50px rgba(0, 212, 255, 0.3),
+                0 0 60px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            border-radius: 15px;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Gaming Section */
+        .gaming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            perspective: 1000px;
+        }
+
+        .gaming-item {
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 153, 255, 0.05) 50%, rgba(0, 102, 204, 0.03) 100%);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+        }
+
+        .gaming-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 255, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .gaming-item:hover::before {
+            opacity: 1;
+        }
+
+        .gaming-item:hover {
+            box-shadow: 
+                0 25px 50px rgba(0, 212, 255, 0.3),
+                0 0 60px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .gaming-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            border-radius: 15px;
+        }
+
+        .gaming-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--secondary-color);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .experience-timeline::before {
+                left: 15px;
+            }
+
+            .experience-item {
+                padding-left: 50px;
+            }
+
+            .experience-item::before {
+                left: 6px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="particles-background" id="particles"></div>
+    
+    <!-- Floating SVG Shapes -->
+    <div class="floating-shapes">
+        <svg class="shape shape-1" width="60" height="60" viewBox="0 0 60 60">
+            <circle cx="30" cy="30" r="25" fill="none" stroke="rgba(0, 212, 255, 0.3)" stroke-width="2"/>
+            <circle cx="30" cy="30" r="15" fill="rgba(0, 212, 255, 0.1)"/>
+        </svg>
+        
+        <svg class="shape shape-2" width="80" height="80" viewBox="0 0 80 80">
+            <polygon points="40,10 70,60 10,60" fill="none" stroke="rgba(0, 153, 255, 0.3)" stroke-width="2"/>
+            <polygon points="40,20 60,50 20,50" fill="rgba(0, 153, 255, 0.1)"/>
+        </svg>
+        
+        <svg class="shape shape-3" width="50" height="50" viewBox="0 0 50 50">
+            <rect x="10" y="10" width="30" height="30" rx="5" fill="none" stroke="rgba(0, 102, 204, 0.3)" stroke-width="2"/>
+            <rect x="15" y="15" width="20" height="20" rx="3" fill="rgba(0, 102, 204, 0.1)"/>
+        </svg>
+        
+        <svg class="shape shape-4" width="70" height="70" viewBox="0 0 70 70">
+            <path d="M35,5 L65,30 L50,60 L20,60 L5,30 Z" fill="none" stroke="rgba(0, 212, 255, 0.3)" stroke-width="2"/>
+            <path d="M35,15 L55,30 L45,50 L25,50 L15,30 Z" fill="rgba(0, 212, 255, 0.1)"/>
+        </svg>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Uddeshya Raj</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#dashboards">Projects</a></li>
+                <li><a href="#photography">Photography</a></li>
+                <li><a href="#gaming">Gaming</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="typewriter-text">Hi, I'm Uddeshya Raj</h1>
+            <p>Data Analyst & AI Enthusiast crafting insights from complex datasets</p>
+            <div class="cta-buttons">
+                <a href="assets/resume/Babson_Uddeshya_Raj_Resume (July 2025).pdf" download class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Let's Connect
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>Currently pursuing an M.S. in Business Analytics at Babson College, I'm passionate about leveraging data science and AI to solve complex business challenges. With professional experience at Quantiphi Inc, I've successfully managed cross-functional teams and delivered innovative AI solutions for Fortune 500 clients.</p>
+            
+            <p>My expertise spans machine learning, predictive modeling, cloud platforms, and conversational AI, with a proven track record of improving operational efficiency and driving data-driven decision making.</p>
+            
+            <p>I'm a certified Google Cloud Digital Leader, AWS Solutions Architect Associate, and Professional Scrum Master, combining technical excellence with strong project management capabilities.</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">92%</div>
+                <div class="stat-label">Intent Match Rate Achieved</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">52%</div>
+                <div class="stat-label">Performance Improvement</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7000+</div>
+                <div class="stat-label">Students Empowered</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Client Satisfaction Score</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-company">Quantiphi Inc</div>
+                            <h3 class="experience-title">Business Analyst</h3>
+                        </div>
+                        <div class="experience-date">January 2022 - March 2024</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Managed a team of 30+ members, delivering 7 Virtual Agent implementations with 92% Intent Match Rate for Fortune 500 financial services organization</li>
+                        <li>Implemented 10 innovative KPIs optimizing BigQuery dashboard performance, resulting in 52% improvement in containment rates</li>
+                        <li>Utilized Google Cloud's Contact Center AI to analyze top 30 customer inquiry reasons, introducing 50 strategic KPIs</li>
+                        <li>Developed incubator-grade Conversational AI Virtual Agent for two universities, empowering 7000 students with 100% accessibility and cost-effectiveness</li>
+                        <li>Led UI development using Figma for U.S. state Department of Health web application, achieving 95% CSAT score</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-company">Babson College</div>
+                            <h3 class="experience-title">Business Analytics Field Project</h3>
+                        </div>
+                        <div class="experience-date">January 2025 - May 2025</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Currently working on advanced business analytics projects focusing on data-driven decision making</li>
+                        <li>Implementing machine learning models for predictive analytics and business intelligence</li>
+                        <li>Collaborating with industry partners to solve real-world business challenges</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Programming - Python - 1.png" alt="Python" class="skill-icon">
+                        Python
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Programming - Microsoft SQL server - 3.png" alt="SQL Server" class="skill-icon">
+                        SQL Server
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Programming - MySQL - 2.png" alt="MySQL" class="skill-icon">
+                        MySQL
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Project Management & Tools</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Project Management - 1 (Jira).png" alt="Jira" class="skill-icon">
+                        Jira
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Project Management - 2 (Azure DevOps).png" alt="Azure DevOps" class="skill-icon">
+                        Azure DevOps
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Project Management - 3 (Asana).png" alt="Asana" class="skill-icon">
+                        Asana
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 1.png" alt="Tool 1" class="skill-icon">
+                        Analytics Tool
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 2.png" alt="Tool 2" class="skill-icon">
+                        Data Tool
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 3.png" alt="Tool 3" class="skill-icon">
+                        Visualization Tool
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 4.png" alt="Tool 4" class="skill-icon">
+                        Development Tool
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 5.png" alt="Tool 5" class="skill-icon">
+                        Cloud Tool
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 6.png" alt="Tool 6" class="skill-icon">
+                        Business Tool
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 7.png" alt="Tool 7" class="skill-icon">
+                        AI Tool
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/images/skills/Tool - 8.png" alt="Tool 8" class="skill-icon">
+                        Database Tool
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications">
+        <div class="section">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="cert-slider">
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification AWS - 1.png" alt="AWS Certification"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification GCC Data Analytics - 5.png" alt="Google Data Analytics"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification GCP ACE - 2.png" alt="Google Cloud ACE"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification GCP CDL - 3.png" alt="Google Cloud CDL"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification PSM I - 4.png" alt="Professional Scrum Master"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification Python Specialization - 6.png" alt="Python Specialization"></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification AWS - 1.png" alt="AWS Certification"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification GCC Data Analytics - 5.png" alt="Google Data Analytics"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification GCP ACE - 2.png" alt="Google Cloud ACE"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification GCP CDL - 3.png" alt="Google Cloud CDL"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification PSM I - 4.png" alt="Professional Scrum Master"></div>
+                <div class="cert-item"><img src="assets/images/certifications/Professional Certification Python Specialization - 6.png" alt="Python Specialization"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboards Section -->
+    <section id="dashboards" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-item">
+                <img src="assets/images/dashboards/Power Bi Dashboard - 1.png" alt="Power BI Dashboard 1">
+                <div class="dashboard-info">
+                    <h3>Adventure Works Dashboard - Part 1</h3>
+                    <p>Comprehensive Power BI dashboard analyzing sales performance, customer insights, and business metrics for Adventure Works company.</p>
+                </div>
+            </div>
+            <div class="dashboard-item">
+                <img src="assets/images/dashboards/Power Bi Dashboard - 2.png" alt="Power BI Dashboard 2">
+                <div class="dashboard-info">
+                    <h3>Adventure Works Dashboard - Part 2</h3>
+                    <p>Advanced analytics and KPI tracking for Adventure Works with interactive visualizations and trend analysis.</p>
+                </div>
+            </div>
+            <div class="dashboard-item">
+                <img src="assets/images/dashboards/R dashboard - Photo 1.png" alt="R Dashboard 1">
+                <div class="dashboard-info">
+                    <h3>AI Adoption Analytics - Overview</h3>
+                    <p>R-powered dashboard tracking AI adoption trends across industries with predictive analytics and forecasting models.</p>
+                </div>
+            </div>
+            <div class="dashboard-item">
+                <img src="assets/images/dashboards/R dashboard - Photo 2.png" alt="R Dashboard 2">
+                <div class="dashboard-info">
+                    <h3>AI Adoption Analytics - Deep Dive</h3>
+                    <p>Detailed analysis of AI implementation patterns, adoption rates, and industry-specific insights using advanced R analytics.</p>
+                </div>
+            </div>
+            <div class="dashboard-item">
+                <img src="assets/images/dashboards/R dashboard - Photo 3.png" alt="R Dashboard 3">
+                <div class="dashboard-info">
+                    <h3>AI Adoption Analytics - Trends</h3>
+                    <p>Comprehensive trend analysis and predictive modeling for AI adoption across different sectors and regions.</p>
+                </div>
+            </div>
+            <div class="dashboard-item">
+                <img src="assets/images/dashboards/R dashboard - Photo 4.png" alt="R Dashboard 4">
+                <div class="dashboard-info">
+                    <h3>AI Adoption Analytics - Insights</h3>
+                    <p>Strategic insights and recommendations based on AI adoption data analysis and machine learning models.</p>
+                </div>
+            </div>
+            <div class="dashboard-item">
+                <img src="assets/images/dashboards/R dashboard - Photo 5.png" alt="R Dashboard 5">
+                <div class="dashboard-info">
+                    <h3>AI Adoption Analytics - Summary</h3>
+                    <p>Executive summary dashboard with key findings, recommendations, and future projections for AI adoption trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Section -->
+    <section id="photography" class="section">
+        <h2 class="section-title">Photography</h2>
+        <div class="photo-grid">
+            <div class="photo-item"><img src="assets/images/photography/Photography - 1.jpg" alt="Photography 1"></div>
+            <div class="photo-item"><img src="assets/images/photography/Photography - 2.jpg" alt="Photography 2"></div>
+            <div class="photo-item"><img src="assets/images/photography/Photography - 3.jpg" alt="Photography 3"></div>
+            <div class="photo-item"><img src="assets/images/photography/Photography - 4.jpg" alt="Photography 4"></div>
+            <div class="photo-item"><img src="assets/images/photography/Photography - 5.jpg" alt="Photography 5"></div>
+            <div class="photo-item"><img src="assets/images/photography/Photography - 6.jpg" alt="Photography 6"></div>
+            <div class="photo-item"><img src="assets/images/photography/Photography - 7.jpg" alt="Photography 7"></div>
+            <div class="photo-item"><img src="assets/images/photography/Photography - 8.jpg" alt="Photography 8"></div>
+        </div>
+    </section>
+
+    <!-- Gaming Section -->
+    <section id="gaming" class="section">
+        <h2 class="section-title">Gaming Universe</h2>
+        <div class="gaming-grid">
+            <div class="gaming-item"><img src="assets/images/gaming/Gaming GIF - 1.gif" alt="Gaming 1"></div>
+            <div class="gaming-item"><img src="assets/images/gaming/Gaming GIF - 2.gif" alt="Gaming 2"></div>
+            <div class="gaming-item"><img src="assets/images/gaming/Gaming GIF - 3.gif" alt="Gaming 3"></div>
+            <div class="gaming-item"><img src="assets/images/gaming/Gaming GIF - 4.gif" alt="Gaming 4"></div>
+            <div class="gaming-item"><img src="assets/images/gaming/Gaming GIF - 5.gif" alt="Gaming 5"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <p>Ready to collaborate on your next data project?</p>
+        <div class="contact-links">
+            <a href="mailto:uraj1@babson.edu" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                Email Me
+            </a>
+            <a href="https://www.linkedin.com/in/uddeshyaraj" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+            <a href="assets/resume/Babson_Uddeshya_Raj_Resume (July 2025).pdf" download class="contact-link">
+                <i class="fas fa-download"></i>
+                Download Resume
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Typewriter effect - Simplified
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                // Start typewriter after loading
+                const title = document.getElementById('typewriter-text');
+                if (title) {
+                    title.style.width = 'auto';
+                    title.style.animation = 'typing 4s steps(20, end) forwards, blink-caret 0.75s step-end infinite';
+                }
+            }, 1000);
+        });
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random positioning
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 20) + 's';
+                
+                // Random opacity
+                particle.style.opacity = 0.2 + Math.random() * 0.6;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on load
+        createParticles();
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(0, 0, 0, 1)';
+            } else {
+                navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section, .experience-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Enhanced 3D mouse-tracking hover effects
+        function add3DCardEffects() {
+            document.querySelectorAll('.photo-item, .gaming-item, .profile-card').forEach(item => {
+                item.addEventListener('mouseenter', function(e) {
+                    if (this.classList.contains('profile-card')) {
+                        this.style.transform = 'translateY(-10px) scale(1.02)';
+                    } else {
+                        this.style.transform = 'translateY(-10px) scale(1.02)';
+                    }
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
+                });
+                
+                item.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    this.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+            });
+        }
+
+        // Enhanced hover effects for other cards
+        function addCardEffects() {
+            document.querySelectorAll('.skill-category, .dashboard-item, .experience-card').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+        }
+
+        // Initialize all effects
+        add3DCardEffects();
+        addCardEffects();
+
+        // Typewriter effect
+        function startTypewriter() {
+            const text = "Hi, I'm Uddeshya Raj";
+            const element = document.getElementById('typewriter-text');
+            if (element) {
+                element.innerHTML = '';
+                element.style.width = '0';
+                element.style.animation = 'none';
+                
+                setTimeout(() => {
+                    element.style.animation = 'typing 4s steps(' + text.length + ', end) forwards, blink-caret 0.75s step-end infinite';
+                    
+                    let i = 0;
+                    const timer = setInterval(() => {
+                        if (i < text.length) {
+                            element.innerHTML += text.charAt(i);
+                            i++;
+                        } else {
+                            clearInterval(timer);
+                        }
+                    }, 150);
+                }, 500);
+            }
+        }
+
+        // Initialize typewriter on load
+        setTimeout(startTypewriter, 1500);
+    </script>
+</body>
+</html>
